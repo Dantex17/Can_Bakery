@@ -6,159 +6,31 @@
     <title>Contacto - Can Bakery</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --negro: #1a1a1a;
-            --blanco: #ffffff;
-            --crema: #f9f8f6; /* Un fondo un poquito más claro, muy estilo editorial */
-            --gris-suave: #777777;
-            --dorado: #c5a880; /* Un tono dorado sutil para detalles */
-        }
+        :root { --negro: #1a1a1a; --blanco: #ffffff; --crema: #f9f8f6; --dorado: #c5a880; }
+        body { background-color: var(--crema); margin: 0; font-family: 'Montserrat', sans-serif; color: var(--negro); }
+        
+        .navbar { background-color: var(--blanco); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eaeaea; }
+        .nav-logo { font-family: 'Pacifico', cursive; font-size: 24px; text-decoration: none; color: var(--negro); }
+        .nav-links a { text-decoration: none; color: var(--negro); margin-left: 25px; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
 
-        body {
-            background-color: var(--crema);
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--negro);
-        }
-
-        /* --- BARRA DE NAVEGACIÓN (Igual que el index) --- */
-        .navbar {
-            background-color: var(--blanco);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #eaeaea; /* Línea fina súper elegante */
-        }
-
-        .nav-logo {
-            font-family: 'Pacifico', cursive;
-            font-size: 24px;
+        .container { max-width: 1000px; margin: 80px auto; padding: 0 20px; text-align: center; }
+        .title { font-family: 'Pacifico', cursive; font-size: 45px; margin-bottom: 50px; }
+        
+        .grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        
+        .social-card {
+            background: var(--blanco);
+            width: 260px;
+            padding: 40px 20px;
+            border: 1px solid #eaeaea;
             text-decoration: none;
             color: var(--negro);
+            transition: 0.4s;
         }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--negro);
-            margin-left: 25px;
-            font-size: 13px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--dorado);
-        }
-
-        /* --- SECCIÓN CONTACTO --- */
-        .contact-container {
-            max-width: 900px;
-            margin: 80px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .contact-title {
-            font-family: 'Pacifico', cursive;
-            font-size: 45px;
-            margin-bottom: 10px;
-            color: var(--negro);
-            font-weight: normal;
-        }
-
-        .contact-subtitle {
-            font-size: 12px;
-            font-weight: 400;
-            color: var(--gris-suave);
-            margin-bottom: 60px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .contact-grid {
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* Tarjetas estilo minimalista / boutique */
-        .contact-card {
-            background-color: var(--blanco);
-            width: 320px;
-            padding: 50px 30px;
-            border: 1px solid #eaeaea; /* Bordes finos, nada de sombras pesadas */
-            text-decoration: none;
-            color: var(--negro);
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        /* Efecto al pasar el mouse */
-        .contact-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--dorado);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.04);
-        }
-
-        .contact-icon {
-            font-size: 35px;
-            margin-bottom: 25px;
-            /* Íconos en blanco y negro para mantener lo premium */
-            filter: grayscale(100%); 
-            transition: all 0.4s;
-        }
-
-        .contact-card:hover .contact-icon {
-            filter: grayscale(0%); /* Devuelve el color original al pasar el mouse */
-        }
-
-        .card-title {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .card-text {
-            font-size: 13px;
-            color: var(--gris-suave);
-            font-weight: 300;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        /* Botón estilo "Ghost" (muy usado en marcas de lujo) */
-        .btn-link {
-            padding: 12px 30px;
-            border: 1px solid var(--negro);
-            background: transparent;
-            color: var(--negro);
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
-
-        .contact-card:hover .btn-link {
-            background-color: var(--negro);
-            color: var(--blanco);
-        }
-
-        @media (max-width: 600px) {
-            .contact-container { margin: 40px auto; }
-            .contact-grid { flex-direction: column; align-items: center; gap: 20px;}
-        }
+        .social-card:hover { border-color: var(--dorado); transform: translateY(-5px); }
+        .icon { font-size: 30px; margin-bottom: 20px; }
+        .name { font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        .desc { font-size: 12px; color: #777; font-weight: 300; margin-bottom: 20px; }
     </style>
 </head>
 <body>

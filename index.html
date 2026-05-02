@@ -6,73 +6,31 @@
     <title>Can Bakery - Menú</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --negro: #1a1a1a;
-            --blanco: #ffffff;
-            --crema: #f9f8f6;
-            --gris-suave: #777777;
-            --dorado: #c5a880;
-        }
-
+        :root { --negro: #1a1a1a; --blanco: #ffffff; --crema: #f9f8f6; --dorado: #c5a880; }
         body { background-color: var(--crema); margin: 0; font-family: 'Montserrat', sans-serif; color: var(--negro); }
-
-        /* --- NAVBAR --- */
-        .navbar {
-            background-color: var(--blanco);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #eaeaea;
-        }
-
+        
+        .navbar { background-color: var(--blanco); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eaeaea; }
         .nav-logo { font-family: 'Pacifico', cursive; font-size: 24px; text-decoration: none; color: var(--negro); }
+        .nav-links a { text-decoration: none; color: var(--negro); margin-left: 25px; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
 
-        .nav-links a {
+        .container { max-width: 1000px; margin: 80px auto; padding: 0 20px; text-align: center; }
+        .title { font-family: 'Pacifico', cursive; font-size: 45px; margin-bottom: 50px; }
+        
+        .grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        
+        .social-card {
+            background: var(--blanco);
+            width: 260px;
+            padding: 40px 20px;
+            border: 1px solid #eaeaea;
             text-decoration: none;
             color: var(--negro);
-            margin-left: 25px;
-            font-size: 12px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.3s;
+            transition: 0.4s;
         }
-
-        .nav-links a:hover { color: var(--dorado); }
-
-        /* --- MENÚ --- */
-        .container { max-width: 600px; margin: 80px auto; padding: 0 20px; }
-
-        .menu-header { text-align: center; margin-bottom: 60px; }
-
-        .menu-title { font-family: 'Pacifico', cursive; font-size: 45px; margin-bottom: 10px; }
-
-        .menu-subtitle { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gris-suave); }
-
-        .menu-card {
-            background-color: var(--blanco);
-            padding: 60px 40px;
-            border: 1px solid #eaeaea;
-        }
-
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 35px;
-            border-bottom: 1px solid #f0f0f0;
-            padding-bottom: 15px;
-        }
-
-        .item-name { font-weight: 500; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; }
-        .item-price { font-weight: 600; font-size: 16px; }
-        .item-desc { display: block; font-size: 12px; color: var(--gris-suave); margin-top: 5px; font-weight: 300; }
-
-        @media (max-width: 600px) { .menu-title { font-size: 35px; } .nav-links { display: none; } }
+        .social-card:hover { border-color: var(--dorado); transform: translateY(-5px); }
+        .icon { font-size: 30px; margin-bottom: 20px; }
+        .name { font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        .desc { font-size: 12px; color: #777; font-weight: 300; margin-bottom: 20px; }
     </style>
 </head>
 <body>
