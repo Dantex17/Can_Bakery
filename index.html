@@ -5,14 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Can Bakery - Menú</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
     <style>
         :root { --negro: #1a1a1a; --blanco: #ffffff; --crema: #f9f8f6; --dorado: #c5a880; --gris-suave: #777777; }
         body { background-color: var(--crema); margin: 0; font-family: 'Montserrat', sans-serif; color: var(--negro); }
         
         /* --- NAVBAR --- */
-        .navbar { background-color: var(--blanco); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eaeaea; }
-        .nav-logo { font-family: 'Pacifico', cursive; font-size: 24px; text-decoration: none; color: var(--negro); }
+        .navbar { 
+            background-color: var(--blanco); 
+            padding: 10px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid #eaeaea; 
+            position: relative; /* Necesario para que el menú se despliegue bien */
+        }
         
+        /* Estilo para tu logo en imagen */
+        .logo-img { height: 45px; width: auto; display: block; }
+        
+        .nav-links { display: flex; }
         .nav-links a { 
             text-decoration: none; 
             color: var(--negro); 
@@ -20,11 +33,12 @@
             font-size: 12px; 
             text-transform: uppercase; 
             letter-spacing: 2px; 
-            transition: color 0.3s ease; /* Transición suave */
+            transition: color 0.3s ease; 
         }
-        
-        /* Efecto al pasar el mouse por la navbar */
         .nav-links a:hover { color: var(--dorado); }
+
+        /* Ícono de menú hamburguesa (Oculto en PC) */
+        .menu-toggle { display: none; font-size: 32px; cursor: pointer; color: var(--negro); }
 
         /* --- MENÚ --- */
         .container { max-width: 600px; margin: 80px auto; padding: 0 20px; }
@@ -38,37 +52,50 @@
             border: 1px solid #eaeaea;
         }
 
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 35px;
-            border-bottom: 1px solid #f0f0f0;
-            padding-bottom: 15px;
-        }
-
+        .menu-item { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 35px; border-bottom: 1px solid #f0f0f0; padding-bottom: 15px; }
         .item-name { font-weight: 500; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; }
         .item-price { font-weight: 600; font-size: 16px; }
         .item-desc { display: block; font-size: 12px; color: var(--gris-suave); margin-top: 5px; font-weight: 300; }
 
-        @media (max-width: 600px) { .menu-title { font-size: 35px; } .nav-links { display: none; } }
+        /* --- MODO CELULAR --- */
+        @media (max-width: 600px) { 
+            .menu-title { font-size: 35px; } 
+            
+            /* 1. Mostramos las 3 rayitas */
+            .menu-toggle { display: block; }
 
-        .logo-img {
-            height: 45px; /* Dejamos la altura original */
-            width: auto;
-            display: block;
-            transform: scale(1.5); /* Esto lo agranda visualmente un 50% */
-            transform-origin: left center; /* Esto evita que al crecer se superponga con otras cosas */
+            /* 2. Reacomodamos los links para que sean una lista desplegable */
+            .nav-links { 
+                display: none; /* Ocultos hasta que se toque el botón */
+                flex-direction: column; 
+                position: absolute; 
+                top: 100%; /* Aparecen justo debajo de la barra blanca */
+                left: 0; 
+                width: 100%; 
+                background-color: var(--blanco); 
+                text-align: center; 
+                padding: 20px 0; 
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05); 
+                border-top: 1px solid #eaeaea;
+                z-index: 999;
+            }
+
+            /* 3. Clase mágica que los muestra cuando JavaScript lo ordena */
+            .nav-links.active { display: flex; }
+
+            .nav-links a { margin: 15px 0; font-size: 14px; }
         }
     </style>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <nav class="navbar">
         <a href="index.html" class="nav-logo">
             <img src="canBakery_logo_navBar.jpeg" alt="Can Bakery" class="logo-img">
         </a>
-        <div class="nav-links">
+        
+        <i class="bi bi-list menu-toggle" id="menu-icon"></i>
+
+        <div class="nav-links" id="nav-links">
             <a href="index.html">Menú</a>
             <a href="contacto.html">Contacto</a>
             <a href="redes.html">Redes</a>
@@ -99,5 +126,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
+
+        menuIcon.addEventListener('click', () => {
+            // Abre y cierra el menú
+            navLinks.classList.toggle('active');
+            
+            // Cambia el dibujo de las 3 rayitas a una "X" y viceversa
+            if(navLinks.classList.contains('active')) {
+                menuIcon.classList.remove('bi-list');
+                menuIcon.classList.add('bi-x');
+            } else {
+                menuIcon.classList.remove('bi-x');
+                menuIcon.classList.add('bi-list');
+            }
+        });
+    </script>
 </body>
 </html>
