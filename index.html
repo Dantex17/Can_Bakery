@@ -23,7 +23,13 @@
         }
         
         /* Estilo para tu logo en imagen */
-        .logo-img { height: 45px; width: auto; display: block; }
+        .logo-img {
+            height: 45px; /* Dejamos la altura original */
+            width: auto;
+            display: block;
+            transform: scale(1.5); /* Esto lo agranda visualmente un 50% */
+            transform-origin: left center; /* Esto evita que al crecer se superponga con otras cosas */
+        }
         
         .nav-links { display: flex; }
         .nav-links a { 

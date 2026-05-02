@@ -61,9 +61,12 @@
 <body>
     <nav class="navbar">
         <a href="index.html" class="nav-logo">
-            <img src="canBakery_logo_navBar.jpeg" alt="Can Bakery" class="logo-img">
+            <img src="logo.jpeg" alt="Can Bakery" class="logo-img">
         </a>
-        <div class="nav-links">
+        
+        <i class="bi bi-list menu-toggle" id="menu-icon"></i>
+
+        <div class="nav-links" id="nav-links">
             <a href="index.html">Menú</a>
             <a href="contacto.html">Contacto</a>
             <a href="redes.html">Redes</a>
@@ -90,5 +93,24 @@
             </a>
         </div>
     </div>
+
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
+
+        menuIcon.addEventListener('click', () => {
+            // Abre y cierra el menú
+            navLinks.classList.toggle('active');
+            
+            // Cambia el dibujo de las 3 rayitas a una "X" y viceversa
+            if(navLinks.classList.contains('active')) {
+                menuIcon.classList.remove('bi-list');
+                menuIcon.classList.add('bi-x');
+            } else {
+                menuIcon.classList.remove('bi-x');
+                menuIcon.classList.add('bi-list');
+            }
+        });
+    </script>
 </body>
 </html>
