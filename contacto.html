@@ -27,11 +27,20 @@
         .nav-links a:hover { color: var(--dorado); }
 
         @media (max-width: 600px) { .nav-links { display: none; } }
+        
+        .logo-img {
+            height: 45px; /* Podés achicar o agrandar este número según como quede */
+            width: auto;
+            display: block;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html" class="nav-logo">Can Bakery</a>
+        <a href="index.html" class="nav-logo">
+            <img src="logo.jpg" alt="Can Bakery" class="logo-img">
+        </a>
         <div class="nav-links">
             <a href="index.html">Menú</a>
             <a href="contacto.html">Contacto</a>
@@ -44,8 +53,8 @@
         <p style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #777; margin-bottom: 60px;">Atención directa vía WhatsApp</p>
         
         <div style="display: flex; justify-content: center;">
-            <a href="https://wa.me/TU_NUMERO" target="_blank" style="background: #fff; width: 350px; padding: 60px; border: 1px solid #eaeaea; text-decoration: none; color: #1a1a1a; transition: 0.4s; display: block;">
-                <div style="font-size: 40px; margin-bottom: 20px;">💬</div>
+            <a href="https://wa.me/5491144096837" target="_blank" style="background: #fff; width: 350px; padding: 60px; border: 1px solid #eaeaea; text-decoration: none; color: #1a1a1a; transition: 0.4s; display: block;">
+                <div class="icon" style="font-size: 40px; margin-bottom: 20px;"><i class="bi bi-whatsapp"></i></div>
                 <h2 style="font-size: 18px; font-weight: 500; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;">WhatsApp</h2>
                 <p style="font-size: 13px; color: #777; font-weight: 300; line-height: 1.6; margin-bottom: 30px;">Escribinos para coordinar tu entrega o consultar por pedidos especiales.</p>
                 <div style="padding: 12px; border: 1px solid #1a1a1a; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; display: inline-block;">Chatear ahora</div>

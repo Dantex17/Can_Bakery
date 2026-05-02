@@ -52,11 +52,20 @@
         .item-desc { display: block; font-size: 12px; color: var(--gris-suave); margin-top: 5px; font-weight: 300; }
 
         @media (max-width: 600px) { .menu-title { font-size: 35px; } .nav-links { display: none; } }
+
+        .logo-img {
+            height: 45px; /* Podés achicar o agrandar este número según como quede */
+            width: auto;
+            display: block;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html" class="nav-logo">Can Bakery</a>
+        <a href="index.html" class="nav-logo">
+            <img src="logo.jpg" alt="Can Bakery" class="logo-img">
+        </a>
         <div class="nav-links">
             <a href="index.html">Menú</a>
             <a href="contacto.html">Contacto</a>
@@ -67,7 +76,7 @@
     <div class="container">
         <div class="menu-header">
             <h1 class="menu-title">Nuestra Carta</h1>
-            <p class="menu-subtitle">Tortas en lata · Edición Limitada</p>
+            <p class="menu-subtitle">· Tortas en lata ·</p>
         </div>
         
         <div class="menu-card">
@@ -76,7 +85,7 @@
                     <span class="item-name">Tiramisú Clásico</span>
                     <span class="item-desc">Café premium, mascarpone artesanal y cacao puro.</span>
                 </div>
-                <span class="item-price">$X.XXX</span>
+                <span class="item-price">$8.000</span>
             </div>
 
             <div class="menu-item">
@@ -84,7 +93,7 @@
                     <span class="item-name">Tiramisú de Pistacho</span>
                     <span class="item-desc">Pistachos tostados y crema de mascarpone italiana.</span>
                 </div>
-                <span class="item-price">$X.XXX</span>
+                <span class="item-price">$9.000</span>
             </div>
         </div>
     </div>
