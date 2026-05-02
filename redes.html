@@ -6,14 +6,27 @@
     <title>Redes - Can Bakery</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Reutilizamos los estilos base para mantener la coherencia */
         :root { --negro: #1a1a1a; --blanco: #ffffff; --crema: #f9f8f6; --dorado: #c5a880; }
         body { background-color: var(--crema); margin: 0; font-family: 'Montserrat', sans-serif; color: var(--negro); }
         
+        /* --- NAVBAR --- */
         .navbar { background-color: var(--blanco); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eaeaea; }
         .nav-logo { font-family: 'Pacifico', cursive; font-size: 24px; text-decoration: none; color: var(--negro); }
-        .nav-links a { text-decoration: none; color: var(--negro); margin-left: 25px; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--negro); 
+            margin-left: 25px; 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            transition: color 0.3s ease;
+        }
+        
+        /* Efecto al pasar el mouse */
+        .nav-links a:hover { color: var(--dorado); }
 
+        /* --- SECCIÓN REDES --- */
         .container { max-width: 1000px; margin: 80px auto; padding: 0 20px; text-align: center; }
         .title { font-family: 'Pacifico', cursive; font-size: 45px; margin-bottom: 50px; }
         
@@ -32,6 +45,8 @@
         .icon { font-size: 30px; margin-bottom: 20px; }
         .name { font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
         .desc { font-size: 12px; color: #777; font-weight: 300; margin-bottom: 20px; }
+
+        @media (max-width: 600px) { .nav-links { display: none; } }
     </style>
 </head>
 <body>
