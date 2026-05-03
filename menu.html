@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - Can Bakery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root { --negro: #1a1a1a; --blanco: #ffffff; --crema: #f9f8f6; --dorado: #c5a880; }
+        body { background-color: var(--crema); margin: 0; font-family: 'Montserrat', sans-serif; color: var(--negro); }
+
+        /* --- NAVBAR --- */
+        .navbar { background-color: var(--blanco); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eaeaea; position: sticky; top: 0; z-index: 1000; }
+        .logo-img { height: 45px; width: auto; transform: scale(1.6); transform-origin: left center; }
+        .nav-links { display: flex; }
+        .nav-links a { text-decoration: none; color: var(--negro); margin-left: 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--dorado); }
+        .menu-toggle { display: none; font-size: 28px; cursor: pointer; }
+
+        /* --- ACORDEÓN MENÚ --- */
+        .container { max-width: 800px; margin: 80px auto; padding: 0 20px; }
+        .page-title { text-align: center; font-family: 'Pacifico', cursive; font-size: 45px; margin-bottom: 50px; }
+        
+        .accordion-item { border-bottom: 1px solid #eaeaea; margin-bottom: 10px; background: var(--blanco); padding: 0 20px; }
+        .accordion-header { display: flex; justify-content: space-between; align-items: center; padding: 25px 0; cursor: pointer; transition: 0.3s; }
+        .accordion-header h3 { margin: 0; font-size: 15px; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
+        .accordion-header .price { font-weight: 600; color: var(--negro); display: flex; align-items: center; gap: 15px; }
+        
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; display: flex; gap: 30px; align-items: center; }
+        .accordion-content.open { max-height: 600px; padding-bottom: 30px; }
+        
+        .product-img { width: 40%; border-radius: 4px; object-fit: cover; }
+        .product-info { width: 60%; font-size: 13px; line-height: 1.8; color: #666; font-weight: 300; }
+
+        /* --- MODO CELULAR --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--blanco); padding: 20px 0; border-top: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+            .nav-links.active { display: flex; }
+            .nav-links a { margin: 15px 0; text-align: center; }
+            .menu-toggle { display: block; }
+            .accordion-content { flex-direction: column; }
+            .product-img, .product-info { width: 100%; }
+            .product-img { margin-bottom: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html"><img src="canBakery_logo_navBar.jpeg" alt="Can Bakery" class="logo-img"></a>
+        <i class="bi bi-list menu-toggle" id="menu-icon"></i>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="menu.html">Menú</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="redes.html">Redes</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Nuestra Carta</h1>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Tiramisú Clásico</h3>
+                <span class="price">$8.000 <i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="accordion-content">
+                <img src="foto6.jpeg" alt="Tiramisú Clásico" class="product-img">
+                <div class="product-info">
+                    <p>Nuestra receta original. Capas de bizcocho suave embebido en café premium, crema de mascarpone artesanal y una lluvia de cacao puro. La experiencia clásica en un formato innovador, ideal para compartir o regalar.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Tiramisú de Pistacho</h3>
+                <span class="price">$9.000 <i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="accordion-content">
+                <img src="foto6.jpeg" alt="Tiramisú Pistacho" class="product-img">
+                <div class="product-info">
+                    <p>Para los amantes del pistacho. Crema de mascarpone fusionada con pasta de pistacho 100% natural, trozos de pistachos tostados y un toque de chocolate blanco. Una edición limitada que no te podés perder.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Menú Hamburguesa
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('bi-x');
+            menuIcon.classList.toggle('bi-list');
+        });
+
+        // Acordeón para abrir/cerrar productos
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.bi');
+            content.classList.toggle('open');
+            icon.classList.toggle('bi-chevron-up');
+            icon.classList.toggle('bi-chevron-down');
+        }
+    </script>
+</body>
+</html>

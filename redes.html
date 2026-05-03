@@ -9,18 +9,26 @@
         :root { --negro: #1a1a1a; --blanco: #ffffff; --crema: #f9f8f6; --dorado: #c5a880; }
         body { background-color: var(--crema); margin: 0; font-family: 'Montserrat', sans-serif; color: var(--negro); }
         
-        /* --- NAVBAR --- */
-        .navbar { background-color: var(--blanco); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eaeaea; }
-        .nav-logo { font-family: 'Pacifico', cursive; font-size: 24px; text-decoration: none; color: var(--negro); }
-        
-        .nav-links a { 
-            text-decoration: none; 
-            color: var(--negro); 
-            margin-left: 25px; 
-            font-size: 12px; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            transition: color 0.3s ease;
+        /* --- NAVBAR (Unificada) --- */
+        .navbar { background-color: var(--blanco); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eaeaea; position: sticky; top: 0; z-index: 1000; }
+        .logo-img { height: 45px; width: auto; transform: scale(1.6); transform-origin: left center; }
+        .nav-links { display: flex; }
+        .nav-links a { text-decoration: none; color: var(--negro); margin-left: 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--dorado); }
+        .menu-toggle { display: none; font-size: 28px; cursor: pointer; }
+
+        /* Ícono de menú hamburguesa (Oculto en PC) */
+        .menu-toggle { display: none; font-size: 32px; cursor: pointer; color: var(--negro); }
+
+        /* --- MODO CELULAR --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--blanco); padding: 20px 0; border-top: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+            .nav-links.active { display: flex; }
+            .nav-links a { margin: 15px 0; text-align: center; }
+            .menu-toggle { display: block; }
+            .accordion-content { flex-direction: column; }
+            .product-img, .product-info { width: 100%; }
+            .product-img { margin-bottom: 15px; }
         }
         
         /* Efecto al pasar el mouse */
@@ -47,27 +55,17 @@
         .desc { font-size: 12px; color: #777; font-weight: 300; margin-bottom: 20px; }
 
         @media (max-width: 600px) { .nav-links { display: none; } }
-
-        .logo-img {
-            height: 40px; /* Dejamos la altura original */
-            width: auto;
-            display: block;
-            transform: scale(1.5); /* Esto lo agranda visualmente un 50% */
-            transform-origin: left center; /* Esto evita que al crecer se superponga con otras cosas */
-        }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html" class="nav-logo">
-            <img src="logo.jpeg" alt="Can Bakery" class="logo-img">
-        </a>
-        
+        <a href="index.html"><img src="canBakery_logo_navBar.jpeg" alt="Logo" class="logo-img"></a>
         <i class="bi bi-list menu-toggle" id="menu-icon"></i>
-
         <div class="nav-links" id="nav-links">
-            <a href="index.html">Menú</a>
+            <a href="index.html">Inicio</a>
+            <a href="menu.html">Menú</a>
+            <a href="faq.html">FAQ</a>
             <a href="contacto.html">Contacto</a>
             <a href="redes.html">Redes</a>
         </div>

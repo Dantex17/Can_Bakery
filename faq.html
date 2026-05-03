@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Can Bakery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root { --negro: #1a1a1a; --blanco: #ffffff; --crema: #f9f8f6; --dorado: #c5a880; }
+        body { background-color: var(--crema); margin: 0; font-family: 'Montserrat', sans-serif; color: var(--negro); }
+
+        /* --- NAVBAR --- */
+        .navbar { background-color: var(--blanco); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eaeaea; position: sticky; top: 0; z-index: 1000; }
+        .logo-img { height: 45px; width: auto; transform: scale(1.6); transform-origin: left center; }
+        .nav-links { display: flex; }
+        .nav-links a { text-decoration: none; color: var(--negro); margin-left: 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--dorado); }
+        .menu-toggle { display: none; font-size: 28px; cursor: pointer; }
+
+        /* --- ACORDEÓN FAQ --- */
+        .container { max-width: 800px; margin: 80px auto; padding: 0 20px; }
+        .page-title { text-align: center; font-family: 'Pacifico', cursive; font-size: 45px; margin-bottom: 20px; }
+        
+        /* Títulos de cada sección */
+        .faq-section-title { font-size: 12px; text-transform: uppercase; letter-spacing: 3px; color: var(--dorado); margin: 50px 0 20px 0; border-bottom: 1px solid #eaeaea; padding-bottom: 10px; font-weight: 600; }
+
+        .accordion-item { border-bottom: 1px solid #eaeaea; margin-bottom: 5px; background: var(--blanco); padding: 0 20px; }
+        .accordion-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; cursor: pointer; transition: 0.3s; }
+        .accordion-header h3 { margin: 0; font-size: 14px; font-weight: 500; }
+        .accordion-header i { color: var(--dorado); font-size: 18px; }
+        
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+        .accordion-content.open { max-height: 300px; padding-bottom: 20px; }
+        
+        .faq-answer { font-size: 13px; line-height: 1.8; color: #666; font-weight: 300; margin: 0; padding-top: 10px; }
+
+        /* --- MODO CELULAR --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--blanco); padding: 20px 0; border-top: 1px solid #eee; box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
+            .nav-links.active { display: flex; }
+            .nav-links a { margin: 15px 0; text-align: center; }
+            .menu-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html"><img src="canBakery_logo_navBar.jpeg" alt="Can Bakery" class="logo-img"></a>
+        <i class="bi bi-list menu-toggle" id="menu-icon"></i>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="menu.html">Menú</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="redes.html">Redes</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Dudas Frecuentes</h1>
+        
+        <h2 class="faq-section-title">Sobre nuestras tortas en lata</h2>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>¿Cómo debo conservar mi torta?</h3>
+                <i class="bi bi-plus-lg"></i>
+            </div>
+            <div class="accordion-content">
+                <p class="faq-answer">Nuestras tortas en lata deben mantenerse siempre refrigeradas en la heladera. Evitá dejarlas a temperatura ambiente por tiempos prolongados.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>¿Cuánto tiempo duran?</h3>
+                <i class="bi bi-plus-lg"></i>
+            </div>
+            <div class="accordion-content">
+                <p class="faq-answer">Al no usar conservantes artificiales, recomendamos consumirlas dentro de los 3 a 4 días posteriores a la entrega para garantizar su frescura y sabor óptimo.</p>
+            </div>
+        </div>
+
+        <h2 class="faq-section-title">Pedidos y Envíos</h2>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>¿Con cuánta anticipación debo hacer mi pedido?</h3>
+                <i class="bi bi-plus-lg"></i>
+            </div>
+            <div class="accordion-content">
+                <p class="faq-answer">Trabajamos con un stock limitado de producción diaria. Te sugerimos realizar tu pedido con al menos 48 horas de anticipación.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>¿Hacen envíos o se retira por algún lugar?</h3>
+                <i class="bi bi-plus-lg"></i>
+            </div>
+            <div class="accordion-content">
+                <p class="faq-answer">Hacemos envíos a domicilio a través de mensajería (el costo depende de la zona). También podés coordinar para retirar tu pedido personalmente. Escribinos por WhatsApp para más detalles.</p>
+            </div>
+        </div>
+
+        <h2 class="faq-section-title">Problemas con mi pedido</h2>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>¿Qué hago si mi pedido llegó en mal estado?</h3>
+                <i class="bi bi-plus-lg"></i>
+            </div>
+            <div class="accordion-content">
+                <p class="faq-answer">Nos tomamos muy en serio la calidad de nuestros productos. Si tuviste algún inconveniente, por favor contactanos inmediatamente por WhatsApp enviándonos una foto de la lata y te lo solucionaremos a la brevedad.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Menú Hamburguesa
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('bi-x');
+            menuIcon.classList.toggle('bi-list');
+        });
+
+        // Acordeón para FAQ
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.bi');
+            content.classList.toggle('open');
+            
+            // Cambia el ícono de + a -
+            if(content.classList.contains('open')) {
+                icon.classList.replace('bi-plus-lg', 'bi-dash-lg');
+            } else {
+                icon.classList.replace('bi-dash-lg', 'bi-plus-lg');
+            }
+        }
+    </script>
+</body>
+</html>
