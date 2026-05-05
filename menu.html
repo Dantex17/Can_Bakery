@@ -12,7 +12,7 @@
 
         /* --- NAVBAR --- */
         .navbar { background-color: var(--blanco); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eaeaea; position: sticky; top: 0; z-index: 1000; }
-        .logo-img { height: 45px; width: auto; transform: scale(1.6); transform-origin: left center; }
+        .logo-img { height: 45px; width: auto; transform: scale(2.0); transform-origin: left center; }
         .nav-links { display: flex; }
         .nav-links a { text-decoration: none; color: var(--negro); margin-left: 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; transition: 0.3s; }
         .nav-links a:hover { color: var(--dorado); }
@@ -28,7 +28,7 @@
         .accordion-header .price { font-weight: 600; color: var(--negro); display: flex; align-items: center; gap: 15px; }
         
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; display: flex; gap: 30px; align-items: center; }
-        .accordion-content.open { max-height: 600px; padding-bottom: 30px; }
+        .accordion-content.open { max-height: 1500px; padding-bottom: 30px; }
         
         .product-img { width: 40%; border-radius: 4px; object-fit: cover; }
         .product-info { width: 60%; font-size: 13px; line-height: 1.8; color: #666; font-weight: 300; }
@@ -41,13 +41,19 @@
             .menu-toggle { display: block; }
             .accordion-content { flex-direction: column; }
             .product-img, .product-info { width: 100%; }
-            .product-img { margin-bottom: 15px; }
+            .product-img { 
+                width: 100%; 
+                max-height: 350px; /* Esto evita que la foto sea infinita */
+                object-fit: cover; /* Mantiene la proporción sin deformarse */
+                object-position: center;
+                margin-bottom: 15px; 
+            }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html"><img src="canBakery_logo_navBar.jpeg" alt="Can Bakery" class="logo-img"></a>
+        <a href="index.html"><img src="canBakery_logo_navBar Background Removed.png" alt="Can Bakery" class="logo-img"></a>
         <i class="bi bi-list menu-toggle" id="menu-icon"></i>
         <div class="nav-links" id="nav-links">
             <a href="index.html">Inicio</a>
@@ -67,7 +73,7 @@
                 <span class="price">$8.000 <i class="bi bi-chevron-down"></i></span>
             </div>
             <div class="accordion-content">
-                <img src="foto6.jpeg" alt="Tiramisú Clásico" class="product-img">
+                <img src="tiramisuLata.jpeg" alt="Tiramisú Clásico" class="product-img">
                 <div class="product-info">
                     <p>Nuestra receta original. Capas de bizcocho suave embebido en café premium, crema de mascarpone artesanal y una lluvia de cacao puro. La experiencia clásica en un formato innovador, ideal para compartir o regalar.</p>
                 </div>
@@ -80,9 +86,35 @@
                 <span class="price">$9.000 <i class="bi bi-chevron-down"></i></span>
             </div>
             <div class="accordion-content">
-                <img src="foto6.jpeg" alt="Tiramisú Pistacho" class="product-img">
+                <img src="tiramisuPistachoLata.jpeg" alt="Tiramisú Pistacho" class="product-img">
                 <div class="product-info">
                     <p>Para los amantes del pistacho. Crema de mascarpone fusionada con pasta de pistacho 100% natural, trozos de pistachos tostados y un toque de chocolate blanco. Una edición limitada que no te podés perder.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Torta Vasca</h3>
+                <span class="price">$38.000 <i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="accordion-content">
+                <img src="tortaVasca.jpeg" alt="Torta Vasca" class="product-img">
+                <div class="product-info">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium inventore minima esse nostrum aliquam labore, quam quasi praesentium dignissimos dolores, veniam excepturi eaque dolore quibusdam harum temporibus, provident qui iusto!.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>Key Lime Pie</h3>
+                <span class="price">$X.000 <i class="bi bi-chevron-down"></i></span>
+            </div>
+            <div class="accordion-content">
+                <img src="keyLime.jpeg" alt="Key Lime Pie" class="product-img">
+                <div class="product-info">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi suscipit cumque saepe. Dolores error, corrupti obcaecati velit quam nisi recusandae numquam consectetur laboriosam. Inventore voluptate delectus praesentium quo! Doloremque, quis..</p>
                 </div>
             </div>
         </div>
